@@ -22,10 +22,7 @@ export const App: React.FC = () => {
       >
         <div className="container">
           <div className="navbar-brand">
-            <Link
-              to="/"
-              className={cn('navbar-item', { 'is-active': isHome })}
-            >
+            <Link to="/" className={cn('navbar-item', { 'is-active': isHome })}>
               Home
             </Link>
 

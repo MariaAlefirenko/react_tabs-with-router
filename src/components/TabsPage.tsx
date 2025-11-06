@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link, useParams } from 'react-router-dom';
-import cn from 'classnames';
+import { useParams } from 'react-router-dom';
 import type { Tab as TabType } from '../types/Tab';
+import { Tabs } from '../components/Tabs';
 
 const tabs: TabType[] = [
   { id: 'tab-1', title: 'Tab 1', content: 'Some text 1' },
@@ -17,19 +17,7 @@ export const TabsPage: React.FC = () => {
     <>
       <h1 className="title">Tabs page</h1>
 
-      <div className="tabs is-boxed">
-        <ul>
-          {tabs.map(tab => (
-            <li
-              key={tab.id}
-              data-cy="Tab"
-              className={cn({ 'is-active': tab.id === tabId })}
-            >
-              <Link to={`/tabs/${tab.id}`}>{tab.title}</Link>
-            </li>
-          ))}
-        </ul>
-      </div>
+      <Tabs tabs={tabs} activeTabId={tabId} />
 
       <div className="block" data-cy="TabContent">
         {activeTab ? activeTab.content : 'Please select a tab'}
